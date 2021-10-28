@@ -1,0 +1,27 @@
+# Compiled JavaScript files
+lib/**/*.js
+lib/**/*.js.map
+
+# TypeScript v1 declaration files
+typings/
+
+# environment variabes
+.env
+private.key
+public.key
+serviceAccountKey.json
+
+# Node.js dependency directory
+node_modules/
+
+api-doc/
+
+# logs
+logs/
+
+# builds
+build/
+
+# lock files
+yarn.lock
+yarn-error.log
