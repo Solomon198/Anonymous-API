@@ -9,17 +9,11 @@ const Users: Schema = new Schema(
   {
     userId: Schema.Types.String,
 
-    firstName: Schema.Types.String,
-
-    lastName: Schema.Types.String,
+    userName: Schema.Types.String,
 
     phoneNumber: Schema.Types.String,
 
-    email: {
-      type: Schema.Types.String,
-      required: false,
-      default: '',
-    },
+    localPhoneNumber: Schema.Types.String,
 
     sex: {
       type: Schema.Types.String,
@@ -27,18 +21,7 @@ const Users: Schema = new Schema(
       required: true,
     },
 
-    bio: {
-      type: Schema.Types.String,
-      required: false,
-      default: '',
-    },
-
     showPhoneNumber: {
-      type: Schema.Types.Boolean,
-      default: true,
-    },
-
-    showEmail: {
       type: Schema.Types.Boolean,
       default: true,
     },
@@ -53,65 +36,6 @@ const Users: Schema = new Schema(
         default: '',
       },
     },
-
-    coverPhoto: {
-      thumbnail: {
-        type: Schema.Types.String,
-        default: '',
-      },
-      url: {
-        type: Schema.Types.String,
-        default: '',
-      },
-    },
-
-    address: {
-      type: Schema.Types.String,
-      default: '',
-    },
-
-    addressCoords: {
-      type: {
-        type: String,
-        enum: ['Point'],
-        default: 'Point',
-        required: true,
-      },
-      coordinates: {
-        type: [Number],
-        required: true,
-      },
-    },
-
-    businessAddressCoords: {
-      type: {
-        type: String,
-        enum: ['Point'],
-        default: 'Point',
-        required: true,
-      },
-      coordinates: {
-        type: [Number],
-        required: true,
-      },
-    },
-
-    businessAddress: {
-      type: Schema.Types.String,
-      default: '',
-    },
-
-    businessAddressDescription: {
-      type: Schema.Types.String,
-      default: '',
-    },
-
-    businessPhotos: [
-      {
-        type: Schema.Types.String,
-        default: '',
-      },
-    ],
 
     hash: Schema.Types.String,
 
