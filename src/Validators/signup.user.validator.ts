@@ -10,8 +10,7 @@ const requestBodySchema = joi.object({
     .required()
     .label('Country code'),
   password: joi.string().min(7).required().label('Password'),
-  firstName: joi.string().required().label('First name'),
-  lastName: joi.string().required().label('Last name'),
+  userName: joi.string().required().label('First name'),
   sex: joi.string().required().label('Sex'),
 });
 

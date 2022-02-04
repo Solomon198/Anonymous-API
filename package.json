@@ -5,8 +5,8 @@
   "main": "build/index.js",
   "scripts": {
     "start": "node ./dist/server.js",
-    "db:start": "mongod --port 27017 --dbpath /var/lib/mongodb/anonymous-api",
-    "start:dev": "yarn compile:tsc && yarn lint:fix &&  yarn start:dev &&  yarn run concurrently  \"yarn compile:tsc:watch\" \"yarn prettier-watch\" \"yarn doc:watch\" ",
+    "db:start": "mongod --port 27017 --dbpath /media/solexkal/64871aad-b2e0-476d-9cca-571a175a2443/mongodb/anonymous-api",
+    "start:dev": "yarn compile:tsc && yarn lint:fix &&  yarn start:dev &&  yarn run concurrently  \"yarn compile:tsc:watch\" ",
     "build": "yarn compile:tsc && yarn doc",
     "compile:tsc:watch": "yarn run tsc -w",
     "compile:tsc": "yarn run tsc ",

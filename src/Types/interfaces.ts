@@ -6,9 +6,7 @@ type photo = {
 };
 
 export type SignUpProps = {
-  firstName: string;
-
-  lastName: string;
+  userName: string;
 
   phoneNumber: string;
 

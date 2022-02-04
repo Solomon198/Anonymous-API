@@ -26,16 +26,7 @@ const Users: Schema = new Schema(
       default: true,
     },
 
-    avatar: {
-      thumbnail: {
-        type: Schema.Types.String,
-        default: '',
-      },
-      url: {
-        type: Schema.Types.String,
-        default: '',
-      },
-    },
+    avatar: Schema.Types.String,
 
     hash: Schema.Types.String,
 

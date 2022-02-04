@@ -51,8 +51,7 @@ let $user = {
   phoneNumber: '09050709444',
   countryCode: 'NG',
   password: 'Ss4solex',
-  firstName: 'Solomon',
-  lastName: 'Yunana',
+  userName: 'Solaris',
   sex: 'male',
 };
 
@@ -255,10 +254,7 @@ describe('Verifying Hanwok Authentication Service e2e test... ', () => {
       .send({
         userId: userId,
         updates: {
-          firstName: 'Solex',
-          lastName: 'Yunax',
-          businessAddressCoords: [78.7373837, 84.883838],
-          addressCoords: [78.7373837, 84.883838],
+          userName: 'Solex',
         },
       })
       .set('Accept', 'application/json')
@@ -277,14 +273,7 @@ describe('Verifying Hanwok Authentication Service e2e test... ', () => {
       .send({
         userId: userId,
         updates: {
-          firstName: 'Solex',
-          lastName: 'Yunax',
-          businessAddressCoords: {
-            coordinates: [78.7373837, 84.883838],
-          },
-          addressCoords: {
-            coordinates: [78.7373837, 84.883838],
-          },
+          userName: 'Solex',
         },
       })
       .set('Accept', 'application/json')
