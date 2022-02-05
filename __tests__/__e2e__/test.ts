@@ -57,6 +57,13 @@ let $user = {
 
 const SuperTest = superTest(app);
 
+// variables
+let token: string;
+let pin: string;
+let accessToken: string;
+let refreshToken: string;
+let userId: string;
+
 beforeAll(async () => {
   try {
     await DatabaseConnection.dropCollection('users');
@@ -66,13 +73,8 @@ beforeAll(async () => {
   }
 });
 
-describe('Verifying Hanwok Authentication Service e2e test... ', () => {
+describe('Verifying Anonymous Authentication e2e test... ', () => {
   // Test global variables
-  let token: string;
-  let pin: string;
-  let accessToken: string;
-  let refreshToken: string;
-  let userId: string;
 
   test('Should signup / register user successfully', async (done) => {
     SuperTest.post('/SignUp')
@@ -378,6 +380,123 @@ describe('Verifying Hanwok Authentication Service e2e test... ', () => {
         accessToken = payload.accessToken;
         refreshToken = payload.refreshToken;
 
+        done();
+      })
+      .catch((e) => {
+        done(e);
+      });
+  });
+});
+
+//= ================================= POST ================================
+
+let newPost = {
+  post: 'Welcome to anonymous platform stay cool and enjoy the vibes, this will get dirty soon',
+  tag: '#marriageWahala',
+};
+
+let update = {
+  post: 'Welcome to anonymous platform stay cool and enjoy the vibes, this will get dirty soon',
+  tag: '#relantionshipWahala',
+};
+let postId = '';
+
+describe('Should test post functionality on Anonymous platform', () => {
+  test('should create post successfully', async (done) => {
+    SuperTest.post('/post')
+      .send(newPost)
+      .set('Accept', 'application/json')
+      .set('Authorization', `Bearer ${accessToken}`)
+      .expect('Content-Type', /json/)
+      .expect(200)
+      .then((response) => {
+        const { payload } = response.body;
+        expect(typeof payload).toBe('object');
+        postId = payload._id;
+        done();
+      })
+      .catch((e) => {
+        done(e);
+      });
+  });
+
+  test('should update post successfully', async (done) => {
+    SuperTest.put('/post')
+      .send({ postId, updates: update })
+      .set('Accept', 'application/json')
+      .set('Authorization', `Bearer ${accessToken}`)
+      .expect('Content-Type', /json/)
+      .expect(200)
+      .then((response) => {
+        const { payload } = response.body;
+        console.log(payload);
+        expect(typeof payload).toBe('object');
+        done();
+      })
+      .catch((e) => {
+        done(e);
+      });
+  });
+
+  test('should get post successfully', async (done) => {
+    SuperTest.get('/post/info/' + postId)
+      .set('Accept', 'application/json')
+      .set('Authorization', `Bearer ${accessToken}`)
+      .expect('Content-Type', /json/)
+      .expect(200)
+      .then((response) => {
+        const { payload } = response.body;
+        expect(typeof payload).toBe('object');
+        done();
+      })
+      .catch((e) => {
+        done(e);
+      });
+  });
+
+  test('should get post successfully', async (done) => {
+    SuperTest.get('/post/info/' + postId)
+      .set('Accept', 'application/json')
+      .set('Authorization', `Bearer ${accessToken}`)
+      .expect('Content-Type', /json/)
+      .expect(200)
+      .then((response) => {
+        const { payload } = response.body;
+        expect(typeof payload).toBe('object');
+        done();
+      })
+      .catch((e) => {
+        done(e);
+      });
+  });
+
+  test('should get user posts in a paginated way', async (done) => {
+    SuperTest.get('/post')
+      .query({ pageSize: 10, pageNumber: 1 })
+      .set('Accept', 'application/json')
+      .set('Authorization', `Bearer ${accessToken}`)
+      .expect('Content-Type', /json/)
+      .expect(200)
+      .then((response) => {
+        const { payload } = response.body;
+        expect(typeof payload).toBe('object');
+        console.log(payload);
+        done();
+      })
+      .catch((e) => {
+        done(e);
+      });
+  });
+
+  test('should delete user post', async (done) => {
+    SuperTest.delete('/post/' + postId)
+      .set('Accept', 'application/json')
+      .set('Authorization', `Bearer ${accessToken}`)
+      .expect('Content-Type', /json/)
+      .expect(200)
+      .then((response) => {
+        const { payload } = response.body;
+        expect(typeof payload).toBe('object');
         done();
       })
       .catch((e) => {

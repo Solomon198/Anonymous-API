@@ -20,6 +20,7 @@ export default function ValidateDeletePost(
   });
 
   if (error) {
+    console.log(error);
     return InvalidInputs(res, error.message);
   }
   next();
