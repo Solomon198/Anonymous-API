@@ -1,17 +1,21 @@
 import * as joi from 'joi';
 import { Request, Response, NextFunction } from 'express';
-import { InvalidInputs } from '../RequestStatus/status';
+import { InvalidInputs } from '../../RequestStatus/status';
 
 const requestBodySchema = joi.object({
-  uid: joi.string().required().label('User ID'),
+  updates: joi.object({
+    post: joi.string().required(),
+    tag: joi.string(),
+  }),
+  postId: joi.string().required(),
 });
 
-export default function ValidateGetUserProfile(
+export default function ValidateUpdatePost(
   req: Request,
   res: Response,
   next: NextFunction,
 ) {
-  const { error } = requestBodySchema.validate(req.params, {
+  const { error } = requestBodySchema.validate(req.body, {
     errors: {
       wrap: {
         label: '',

@@ -2,9 +2,9 @@ import { Response, Request } from 'express';
 import {
   ProcessingSuccess,
   UnAuthorized,
-} from '../RequestStatus/status';
-import { decodeJwtToken } from '../utills/utills';
-import models from '../models/index';
+} from '../../RequestStatus/status';
+import { decodeJwtToken } from '../../utills/utills';
+import models from '../../models/index';
 // import { UserProps } from '../Types/interfaces';
 
 require('dotenv/config');

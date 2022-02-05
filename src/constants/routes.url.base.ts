@@ -5,6 +5,7 @@ const VERIFICATION_BASE = '/verify'; // verification
 const TOKEN_MANAGEMENT_BASE = '/token'; // manage tokens
 const RESSET_PASSWORD_BASE = '/reset-password';
 const PROFILE = '/profile';
+const POST = '/post';
 
 export default {
   LOGIN_BASE,
@@ -13,4 +14,5 @@ export default {
   TOKEN_MANAGEMENT_BASE,
   RESSET_PASSWORD_BASE,
   PROFILE,
+  POST,
 };

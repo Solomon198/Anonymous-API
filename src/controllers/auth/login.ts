@@ -3,10 +3,10 @@ import {
   LoginSuccess,
   InvalidCredential,
   SuspendUser,
-} from '../RequestStatus/status';
-import models from '../models';
-import { getTokens } from '../utills/utills';
-import { UserProps } from '../Types/interfaces';
+} from '../../RequestStatus/status';
+import models from '../../models';
+import { getTokens } from '../../utills/utills';
+import { UserProps } from '../../Types/interfaces';
 
 // the middlewares handle most of the checks that should have been done here
 export async function loginAccount(req: Request, res: Response) {

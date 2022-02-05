@@ -1,6 +1,6 @@
 import * as joi from 'joi';
 import { Request, Response, NextFunction } from 'express';
-import { InvalidInputs } from '../RequestStatus/status';
+import { InvalidInputs } from '../../RequestStatus/status';
 
 const requestBodySchema = joi.object({
   phoneNumber: joi.string().required().min(8).label('Phone number'),
@@ -10,13 +10,11 @@ const requestBodySchema = joi.object({
     .required()
     .label('Country code'),
   password: joi.string().min(7).required().label('Password'),
-  userName: joi.string().required().label('First name'),
-  sex: joi.string().required().label('Sex'),
 });
 
-export default function ValidateSignUpMiddleWare(
+export default function ValidateLoginMiddleWare(
   req: Request,
-  res: Response,
+  res: Response, // eslint-disable-line
   next: NextFunction,
 ) {
   const { error } = requestBodySchema.validate(req.body, {

@@ -1,13 +1,17 @@
 import * as joi from 'joi';
 import { Request, Response, NextFunction } from 'express';
-import { InvalidInputs } from '../RequestStatus/status';
+import { InvalidInputs } from '../../RequestStatus/status';
 
 const requestBodySchema = joi.object({
-  accessToken: joi.string().required().label('Access token'),
-  password: joi.string().min(7).required().label('Password'),
+  phoneNumber: joi.string().required().min(8).label('Phone number'),
+  countryCode: joi
+    .string()
+    .length(2)
+    .required()
+    .label('Country code'),
 });
 
-export default function ValidatePasswordRessetMiddleWare(
+export default function ValidateNumberVerificationUpMiddleWare(
   req: Request,
   res: Response,
   next: NextFunction,
@@ -19,6 +23,7 @@ export default function ValidatePasswordRessetMiddleWare(
       },
     },
   });
+
   if (error) {
     return InvalidInputs(res, error.message);
   }

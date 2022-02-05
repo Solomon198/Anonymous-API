@@ -2,9 +2,9 @@ import { Request, Response } from 'express';
 import {
   ProcessingSuccess,
   InvalidCredential,
-} from '../RequestStatus/status';
-import { decodeJwtToken, getTokens } from '../utills/utills';
-import { UserProps } from '../Types/interfaces';
+} from '../../RequestStatus/status';
+import { decodeJwtToken, getTokens } from '../../utills/utills';
+import { UserProps } from '../../Types/interfaces';
 
 export async function RefreshAccessToken(
   req: Request,

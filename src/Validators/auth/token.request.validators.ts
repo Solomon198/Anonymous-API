@@ -1,17 +1,12 @@
 import * as joi from 'joi';
 import { Request, Response, NextFunction } from 'express';
-import { InvalidInputs } from '../RequestStatus/status';
+import { InvalidInputs } from '../../RequestStatus/status';
 
 const requestBodySchema = joi.object({
-  phoneNumber: joi.string().required().min(8).label('Phone number'),
-  countryCode: joi
-    .string()
-    .length(2)
-    .required()
-    .label('Country code'),
+  refreshToken: joi.string().required().label('Refresh token'),
 });
 
-export default function ValidateNumberVerificationUpMiddleWare(
+export default function ValidateRequestToken(
   req: Request,
   res: Response,
   next: NextFunction,
@@ -23,7 +18,6 @@ export default function ValidateNumberVerificationUpMiddleWare(
       },
     },
   });
-
   if (error) {
     return InvalidInputs(res, error.message);
   }

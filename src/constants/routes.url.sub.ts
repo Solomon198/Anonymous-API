@@ -23,7 +23,15 @@ const PROFILE = '/';
 
 const RESSET_PASSWORD = '/';
 
+// POST
+const GET_POST = '/info/:postId';
+const ROOT = '/';
+const ROOT_POST_PARAM = '/:postId';
+
 export default {
+  ROOT_POST_PARAM,
+  ROOT,
+  GET_POST,
   PROFILE,
   GET_PROFILE,
   LOGIN,

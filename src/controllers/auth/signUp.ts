@@ -1,7 +1,7 @@
 import { Request, Response } from 'express';
-import { SignUpSuccess } from '../RequestStatus/status';
-import models from '../models/index';
-import { SignUpProps } from '../Types/interfaces';
+import { SignUpSuccess } from '../../RequestStatus/status';
+import models from '../../models/index';
+import { SignUpProps } from '../../Types/interfaces';
 
 // the middleware handles lot of stuffs that should have been done here
 export async function SignUp(req: Request, res: Response) {

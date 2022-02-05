@@ -57,3 +57,11 @@ export interface UserProps extends Document {
   lockAccount: () => void;
   /* eslint-enable */
 }
+
+export interface Post extends Document {
+  user: string;
+  post: string;
+  likes: number;
+  likers: string[];
+  tag: string;
+}

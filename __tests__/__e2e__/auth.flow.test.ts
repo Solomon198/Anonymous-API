@@ -233,7 +233,7 @@ describe('Verifying Hanwok Authentication Service e2e test... ', () => {
       });
   });
 
-  test('User should not be able to get profile information without access token pass to request header', async (done) => {
+  test('User should be able to get profile information with access token pass to request header', async (done) => {
     SuperTest.get('/profile/' + userId)
       .set('Accept', 'application/json')
       .set('Authorization', `Bearer ${accessToken}`)

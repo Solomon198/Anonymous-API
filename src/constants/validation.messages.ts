@@ -34,6 +34,8 @@ const VERIFICATION_TOKEN_EXPIRE =
 
 const USER_NOT_EXIST = 'The user does not exist';
 
+const POST_NOT_FOUND = 'Could not find post with corresponding ID';
+
 export default {
   USER_NOT_EXIST,
   INVALID_PASSWORD,
@@ -48,4 +50,5 @@ export default {
   UNVERIFIED_ACCOUNT,
   INCORRECT_PIN,
   VERIFICATION_TOKEN_EXPIRE,
+  POST_NOT_FOUND,
 };

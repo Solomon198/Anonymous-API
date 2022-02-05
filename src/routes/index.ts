@@ -1,9 +1,10 @@
-import login from './login';
-import SignUp from './signUp';
-import Verification from './verification';
-import Token from './token';
-import PasswordReset from './resetPassword';
-import Profile from './profile';
+import login from './auth/login';
+import SignUp from './auth/signUp';
+import Verification from './auth/verification';
+import Token from './auth/token';
+import PasswordReset from './auth/resetPassword';
+import Profile from './profile/profile';
+import Post from './post/post';
 
 export default {
   login,
@@ -12,4 +13,5 @@ export default {
   Token,
   PasswordReset,
   Profile,
+  Post,
 };

@@ -5,7 +5,7 @@ import * as https from 'https';
 import Twilio from 'twilio';
 import moment from 'moment';
 import config from 'config';
-import app from '../index';
+import app from '../../index';
 import {
   InvalidInputs,
   ProcessingError,
@@ -15,7 +15,7 @@ import {
   LastPinNotTimout,
   MaxPinTrialExceeded,
   VerificationStatusError,
-} from '../RequestStatus/status';
+} from '../../RequestStatus/status';
 import {
   getPhoneNumberInfo,
   phoneNumberExist,
@@ -23,11 +23,11 @@ import {
   encodeToJwtToken,
   decodeJwtToken,
   getTokens,
-} from '../utills/utills';
-import models from '../models/index';
-import { NumverifyResponseType } from '../Types/numverifyResponse';
-import Constants from '../constants/index';
-import { UserProps } from '../Types/interfaces';
+} from '../../utills/utills';
+import models from '../../models/index';
+import { NumverifyResponseType } from '../../Types/numverifyResponse';
+import Constants from '../../constants/index';
+import { UserProps } from '../../Types/interfaces';
 
 const client = Twilio(
   config.get('TWILIO_ACCOUNT_SID'),

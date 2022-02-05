@@ -3,10 +3,10 @@ import {
   verifyCode,
   SendCallVerificationPin,
   SendSMSVerificationPin,
-} from '../controllers/verification';
-import constants from '../constants/index';
-import ValidateNumberVerification from '../Validators/verify.phone.validator';
-import HandleAsyncFactory from '../Middlewares/async.error.handler';
+} from '../../controllers/auth/verification';
+import constants from '../../constants/index';
+import ValidateNumberVerification from '../../Validators/auth/verify.phone.validator';
+import HandleAsyncFactory from '../../Middlewares/async.error.handler';
 
 const { VERIFICATION_CALL, VERIFICATION_CODE, VERIFICATION_SMS } =
   constants.RoutesSubs;

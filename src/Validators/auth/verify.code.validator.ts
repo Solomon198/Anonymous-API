@@ -1,6 +1,6 @@
 import * as joi from 'joi';
 import { Request, Response, NextFunction } from 'express';
-import { InvalidInputs } from '../RequestStatus/status';
+import { InvalidInputs } from '../../RequestStatus/status';
 
 const requestBodySchema = joi.object({
   pin: joi.string().required().length(4),

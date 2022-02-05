@@ -2,14 +2,14 @@ import { Request, Response } from 'express';
 import {
   ResourceNotFound,
   ProcessingSuccess,
-} from '../RequestStatus/status';
-import models from '../models';
+} from '../../RequestStatus/status';
+import models from '../../models';
 
 export default async function GetProfileInformation(
   req: Request,
   res: Response,
 ) {
-  const { uid } = req.params;
+  const uid = res.locals.userId;
 
   const doc = await models.Users.findOne({ userId: uid }).select({
     hash: 0,

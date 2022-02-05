@@ -1,22 +1,18 @@
 import * as joi from 'joi';
 import { Request, Response, NextFunction } from 'express';
-import { InvalidInputs } from '../RequestStatus/status';
+import { InvalidInputs } from '../../RequestStatus/status';
 
 const requestBodySchema = joi.object({
-  userId: joi.string().required().label('User ID'),
-
-  updates: joi.object({
-    userName: joi.string(),
-    avatar: joi.string(),
-  }),
+  pageNumber: joi.number().required(),
+  pageSize: joi.number().required(),
 });
 
-export default function ValidateUpdateUser(
+export default function ValidateDeletePost(
   req: Request,
   res: Response,
   next: NextFunction,
 ) {
-  const { error } = requestBodySchema.validate(req.body, {
+  const { error } = requestBodySchema.validate(req.query, {
     errors: {
       wrap: {
         label: '',
@@ -25,7 +21,6 @@ export default function ValidateUpdateUser(
   });
 
   if (error) {
-    console.log(error);
     return InvalidInputs(res, error.message);
   }
   next();

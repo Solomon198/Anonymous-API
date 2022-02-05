@@ -11,7 +11,9 @@ export default async function ValidateAccessToken(
   const { authorization } = req.headers;
   const accessToken = authorization?.split(' ')[1];
   try {
-    decodeJwtToken(accessToken as any) as UserProps; // throws error if not valid
+    const user = decodeJwtToken(accessToken as any) as UserProps; // throws error if not valid
+    res.locals.userId = (user.userId as any).userId;
+
     next();
   } catch (e) {
     return UnAuthorized(res);
