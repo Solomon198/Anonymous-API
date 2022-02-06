@@ -78,6 +78,16 @@ export const UserExist = (res: Response) => {
   });
 };
 
+export const ResourceAlreadyExist = (
+  res: Response,
+  message: string,
+) => {
+  res.status(STATUS_CODES.CONFLICT.CODE).json({
+    error: Constants.RequestResponse.AlreadyExist,
+    message,
+  });
+};
+
 // VALIDATING INPUT
 export const InvalidInputs = (res: Response, message?: string) => {
   res.status(STATUS_CODES.BAD_REQUEST.CODE).json({

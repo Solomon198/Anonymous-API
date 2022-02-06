@@ -61,7 +61,14 @@ export interface UserProps extends Document {
 export interface Post extends Document {
   user: string;
   post: string;
-  likes: number;
+  likesCount: number;
+  commentCount: number;
   likers: string[];
   tag: string;
+}
+
+export interface Comments extends Document {
+  post: string;
+  comment: string;
+  user: string;
 }

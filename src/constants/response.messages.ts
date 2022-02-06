@@ -7,6 +7,7 @@ const UnAuthorizedRequest = 'UNAUTHORIZED.REQUEST';
 const AccountNotVerified = 'ACCOUNT.NOT.VERIFIED';
 const ServerError = 'SERVER.ERROR';
 const NotFound = 'NOT.FOUND';
+const AlreadyExist = 'ALREADY.EXIST';
 
 // input validation messages
 const InvalidPhoneNumber = 'INVALID.PHONE';
@@ -34,5 +35,6 @@ export default {
   PasswordStrength,
   UserSuspended,
   PinNotTimeOut,
+  AlreadyExist,
   MAX_TRIALS_EXCEEDED,
 };

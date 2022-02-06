@@ -18,6 +18,9 @@ const INCORRECT_PASSWORD = 'Incorrect password please try again.';
 const USER_EXIST =
   'Account is already in use by another user, please a different phone number';
 
+const LIKE_ALREADY_EXIST =
+  'You cannot like a post twice, please unlike before liking again';
+
 const SERVER_ERROR =
   'An unexpected error is preventing the server from processing the request please try again later.';
 
@@ -36,7 +39,14 @@ const USER_NOT_EXIST = 'The user does not exist';
 
 const POST_NOT_FOUND = 'Could not find post with corresponding ID';
 
+const LIKE_NOT_FOUND =
+  'Could not find a corresponding like to post you want to unlike';
+
+const COMMENT_NOT_FOUND =
+  'Could not find comment with corresponding comment';
+
 export default {
+  LIKE_NOT_FOUND,
   USER_NOT_EXIST,
   INVALID_PASSWORD,
   INVALID_CREDENTIALS,
@@ -51,4 +61,6 @@ export default {
   INCORRECT_PIN,
   VERIFICATION_TOKEN_EXPIRE,
   POST_NOT_FOUND,
+  LIKE_ALREADY_EXIST,
+  COMMENT_NOT_FOUND,
 };
