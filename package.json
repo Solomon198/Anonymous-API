@@ -14,7 +14,7 @@
     "doc:watch": "nodemon --watch build/doc --exec yarn doc",
     "lint": "eslint src/**/*.ts",
     "lint:fix": "eslint --fix src/**/*.ts",
-    "test": "jest --watch --detectOpenHandles --rootDir=__tests__ ",
+    "test": "jest --detectOpenHandles --rootDir=__tests__ ",
     "prettier-watch": "onchange **/*.ts -- prettier --write {{changed}}",
     "prettier-format": "prettier --config .prettierrc **/*.ts --write",
     "prepare": "husky install"
